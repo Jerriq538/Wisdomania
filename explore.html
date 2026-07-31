@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,6 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
@@ -18,35 +21,23 @@ box-sizing:border-box;
 
 body{
 background:#050505;
-color:white;
+color:#fff;
 font-family:"Space Grotesk",sans-serif;
 overflow-x:hidden;
 }
 
 body::before{
-
 content:"";
-
 position:fixed;
-
 top:50%;
 left:50%;
-
 width:900px;
 height:900px;
-
 transform:translate(-50%,-50%);
-
-background:radial-gradient(circle,
-rgba(193,18,31,.15),
-transparent 70%);
-
+background:radial-gradient(circle,rgba(193,18,31,.15),transparent 70%);
 pointer-events:none;
-
 z-index:-1;
-
 animation:pulse 8s ease-in-out infinite;
-
 }
 
 @keyframes pulse{
@@ -61,53 +52,53 @@ transform:translate(-50%,-50%) scale(1.1);
 
 }
 
+.back{
+position:fixed;
+top:30px;
+left:40px;
+text-decoration:none;
+color:#fff;
+font-weight:700;
+z-index:10;
+}
+
+.back:hover{
+color:#c1121f;
+}
+
 header{
-
 text-align:center;
-
-padding:80px 20px 50px;
-
+padding:90px 20px 60px;
 }
 
 .explore-title{
-    font-family: "Montserrat", sans-serif;
-    font-size: 110px;
-    font-weight: 900;
-    letter-spacing: 14px;
-    text-transform: uppercase;
-    line-height: 1;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 12px;
-    text-shadow:
-        0 0 12px rgba(255,255,255,.12),
-        0 0 35px rgba(193,18,31,.22);
+font-family:"Montserrat",sans-serif;
+font-size:110px;
+font-weight:900;
+letter-spacing:14px;
+text-transform:uppercase;
+line-height:1;
+text-shadow:
+0 0 12px rgba(255,255,255,.12),
+0 0 35px rgba(193,18,31,.22);
 }
 
 .explore-logo{
-
 width:70px;
-
 display:block;
-
-margin:0 auto 25px;
-
+margin:22px auto;
 animation:logoGlow 4s ease-in-out infinite;
-
 }
 
 header p{
-
 font-size:20px;
-
-color:#a0a0a0;
-
+color:#9e9e9e;
 }
 
 @keyframes logoGlow{
 
 0%{
-filter:drop-shadow(0 0 0px #c1121f);
+filter:drop-shadow(0 0 0 #c1121f);
 }
 
 50%{
@@ -115,129 +106,101 @@ filter:drop-shadow(0 0 22px #c1121f);
 }
 
 100%{
-filter:drop-shadow(0 0 0px #c1121f);
+filter:drop-shadow(0 0 0 #c1121f);
 }
 
 }
 
 .grid{
-
 max-width:1200px;
-
 margin:auto;
-
 padding:0 10% 100px;
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
 gap:30px;
-
 }
 
 .card{
-
 background:#111;
-
 border:1px solid #222;
-
-border-radius:18px;
-
+border-radius:20px;
 padding:40px;
-
 text-decoration:none;
-
-color:white;
-
-transition:.35s;
-
+color:#fff;
 position:relative;
-
 overflow:hidden;
 
+opacity:0;
+transform:translateY(50px) scale(.96);
+transition:
+transform .4s,
+box-shadow .4s,
+border-color .4s,
+opacity .6s;
 }
 
 .card:hover{
-
-transform:translateY(-8px);
-
+transform:translateY(-10px);
 border-color:#c1121f;
-
 box-shadow:0 20px 45px rgba(193,18,31,.25);
-
 }
 
 .icon{
-    width:60px;
-    height:60px;
-    margin-bottom:25px;
-    display:block;
-    transition:.35s;
+width:60px;
+height:60px;
+margin-bottom:25px;
+display:block;
+transition:.35s;
 }
 
 .card:hover .icon{
-    transform:scale(1.08);
-    filter:drop-shadow(0 0 12px rgba(193,18,31,.45));
+transform:scale(1.08);
+filter:drop-shadow(0 0 12px rgba(193,18,31,.45));
 }
 
 .card h2{
-
 margin-bottom:15px;
-
+font-size:30px;
 }
 
 .card p{
-
+line-height:1.8;
 color:#b5b5b5;
-
-line-height:1.7;
-
 }
 
 .arrow{
-
 position:absolute;
-
 right:30px;
-
 bottom:25px;
-
 font-size:28px;
-
 opacity:.4;
-
 transition:.3s;
-
 }
 
 .card:hover .arrow{
-
 transform:translateX(8px);
-
 opacity:1;
+}
 
+@media(max-width:768px){
+
+.explore-title{
+font-size:60px;
+letter-spacing:8px;
+}
+
+.explore-logo{
+width:55px;
 }
 
 .back{
-
-position:fixed;
-
-top:30px;
-
-left:40px;
-
-text-decoration:none;
-
-color:white;
-
-font-weight:700;
-
+left:20px;
+top:20px;
 }
 
-.back:hover{
-
-color:#c1121f;
+.grid{
+padding:0 20px 60px;
+}
 
 }
 
@@ -261,9 +224,9 @@ color:#c1121f;
 
 <section class="grid">
 
-<a href="media.html" class="card"></a>
+<a href="media.html" class="card">
 
-<img src="Images/icons/media.svg" alt="Media" class="icon">
+<img src="Images/icons/media.svg" class="icon" alt="Media">
 
 <h2>Media</h2>
 
@@ -275,7 +238,7 @@ color:#c1121f;
 
 <a href="https://audiomack.com/" target="_blank" class="card">
 
-<img src="Images/icons/music.svg" alt="Music" class="icon">
+<img src="Images/icons/music.svg" class="icon" alt="Music">
 
 <h2>Music</h2>
 
@@ -287,7 +250,7 @@ color:#c1121f;
 
 <a href="#" class="card">
 
-<img src="Images/icons/store.svg" alt="Store" class="icon">
+<img src="Images/icons/store.svg" class="icon" alt="Store">
 
 <h2>Store</h2>
 
@@ -299,7 +262,7 @@ color:#c1121f;
 
 <a href="#" class="card">
 
-<img src="Images/icons/community.svg" alt="Community" class="icon">
+<img src="Images/icons/community.svg" class="icon" alt="Community">
 
 <h2>Community</h2>
 
@@ -311,7 +274,7 @@ color:#c1121f;
 
 <a href="#" class="card">
 
-<img src="Images/icons/socials.svg" alt="Socials" class="icon">
+<img src="Images/icons/socials.svg" class="icon" alt="Socials">
 
 <h2>Socials</h2>
 
@@ -323,5 +286,29 @@ color:#c1121f;
 
 </section>
 
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0) scale(1)";
+
+}
+
+});
+
+},{threshold:.15});
+
+cards.forEach(card=>observer.observe(card));
+
+</script>
+
 </body>
+
 </html>

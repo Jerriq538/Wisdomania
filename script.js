@@ -8,29 +8,38 @@ window.addEventListener("load", () => {
 
     let value = 0;
 
-    const interval = setInterval(() => {
+    if (counter) {
 
-        value++;
+        const interval = setInterval(() => {
 
-        if (counter) {
+            value++;
+
             counter.textContent = value + "%";
-        }
 
-        if (value >= 100) {
+            if (value >= 100) {
 
-            clearInterval(interval);
+                clearInterval(interval);
 
-            setTimeout(() => {
-                document.body.style.overflow = "auto";
-            }, 300);
+                setTimeout(() => {
 
-        }
+                    document.body.style.overflow = "auto";
 
-    }, 30);
+                }, 300);
+
+            }
+
+        }, 30);
+
+    } else {
+
+        document.body.style.overflow = "auto";
+
+    }
 
 });
 
 // Smooth reveal animation
+
 const observer = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
@@ -45,7 +54,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 }, {
+
     threshold: 0.15
+
 });
 
 document.querySelectorAll(".section, .card").forEach(item => {
@@ -59,32 +70,45 @@ document.querySelectorAll(".section, .card").forEach(item => {
 });
 
 // Button hover animation
+
 document.querySelectorAll(".buttons a").forEach(button => {
 
     button.addEventListener("mouseenter", () => {
+
         button.style.boxShadow = "0 0 25px rgba(193,18,31,.45)";
+
     });
 
     button.addEventListener("mouseleave", () => {
+
         button.style.boxShadow = "none";
+
     });
 
 });
 
 // Navbar shadow
+
 window.addEventListener("scroll", () => {
 
     const nav = document.querySelector("nav");
 
+    if (!nav) return;
+
     if (window.scrollY > 20) {
+
         nav.style.boxShadow = "0 5px 20px rgba(0,0,0,.35)";
+
     } else {
+
         nav.style.boxShadow = "none";
+
     }
 
 });
 
 // Intro logo mouse movement
+
 const logo = document.querySelector(".intro-logo");
 
 document.addEventListener("mousemove", (e) => {
@@ -99,14 +123,21 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // Navbar resize on scroll
+
 window.addEventListener("scroll", () => {
 
     const nav = document.querySelector("nav");
 
+    if (!nav) return;
+
     if (window.scrollY > 80) {
+
         nav.style.padding = "16px 8%";
+
     } else {
+
         nav.style.padding = "24px 8%";
+
     }
 
 });
