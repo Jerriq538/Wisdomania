@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Join Wisdomania</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+color:#fff;
+font-family:"Space Grotesk",sans-serif;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+width:900px;
+height:900px;
+transform:translate(-50%,-50%);
+background:radial-gradient(circle,rgba(193,18,31,.15),transparent 70%);
+pointer-events:none;
+z-index:-1;
+animation:pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse{
+0%,100%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.1);}
+}
+
+.back{
+position:fixed;
+top:30px;
+left:40px;
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+.back:hover{
+color:#c1121f;
+}
+
+.container{
+max-width:900px;
+margin:0 auto;
+padding:120px 30px;
+text-align:center;
+}
+
+h1{
+font-family:"Montserrat",sans-serif;
+font-size:90px;
+font-weight:900;
+letter-spacing:8px;
+margin-bottom:25px;
+}
+
+p{
+font-size:22px;
+line-height:1.8;
+color:#b5b5b5;
+margin-bottom:30px;
+}
+
+.statement{
+background:#111;
+border:1px solid #222;
+border-radius:20px;
+padding:40px;
+margin-top:50px;
+}
+
+.button{
+display:inline-block;
+margin-top:40px;
+padding:18px 40px;
+background:#c1121f;
+color:white;
+text-decoration:none;
+font-weight:700;
+border-radius:12px;
+transition:.3s;
+}
+
+.button:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(193,18,31,.35);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="container">
+
+<h1>JOIN WISDOMANIA</h1>
+
+<p>
+Wisdomania is more than a brand.
+It is an organization dedicated to the pursuit of sovereignty through mastery.
+</p>
+
+<div class="statement">
+
+<p>
+Membership is not available yet.
+
+We're building the foundation first.
+
+When the time comes, this is where people who share the vision will begin their journey.
+</p>
+
+<a href="#" class="button">Coming Soon</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
