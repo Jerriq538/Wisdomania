@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Media | Wisdomania</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+color:white;
+font-family:"Space Grotesk",sans-serif;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+width:900px;
+height:900px;
+transform:translate(-50%,-50%);
+background:radial-gradient(circle,rgba(193,18,31,.12),transparent 70%);
+pointer-events:none;
+z-index:-1;
+}
+
+header{
+
+padding:60px 10%;
+border-bottom:1px solid #202020;
+
+}
+
+.back{
+
+color:white;
+text-decoration:none;
+font-weight:700;
+
+}
+
+.back:hover{
+
+color:#c1121f;
+
+}
+
+.logo{
+
+display:block;
+
+width:70px;
+
+margin:30px auto 15px;
+
+}
+
+header h1{
+
+font-family:"Montserrat",sans-serif;
+font-size:64px;
+text-align:center;
+letter-spacing:8px;
+
+}
+
+header p{
+
+margin-top:15px;
+text-align:center;
+color:#9b9b9b;
+
+}
+
+.search{
+
+max-width:800px;
+margin:50px auto 20px;
+
+padding:0 20px;
+
+}
+
+.search input{
+
+width:100%;
+
+padding:18px 24px;
+
+background:#111;
+
+border:1px solid #222;
+
+border-radius:14px;
+
+color:white;
+
+font-size:17px;
+
+}
+
+.filters{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin-bottom:50px;
+
+}
+
+.filters button{
+
+padding:12px 22px;
+
+background:#111;
+
+border:1px solid #222;
+
+color:white;
+
+border-radius:30px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.filters button:hover{
+
+background:#c1121f;
+
+}
+
+.feed{
+
+max-width:850px;
+
+margin:auto;
+
+padding:0 20px 80px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+.post{
+
+background:#101010;
+
+border:1px solid #222;
+
+border-radius:20px;
+
+padding:28px;
+
+}
+
+.author{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+.author img{
+
+width:55px;
+height:55px;
+border-radius:50%;
+
+}
+
+.author h3{
+
+font-size:18px;
+
+}
+
+.author span{
+
+display:block;
+
+font-size:14px;
+
+color:#888;
+
+margin-top:4px;
+
+}
+
+.post h2{
+
+margin-bottom:18px;
+
+}
+
+.post-image{
+
+width:100%;
+
+height:380px;
+
+background:#181818;
+
+border-radius:16px;
+
+margin-bottom:22px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:#666;
+
+}
+
+.post p{
+
+line-height:1.9;
+
+color:#c0c0c0;
+
+}
+
+.actions{
+
+display:flex;
+
+gap:35px;
+
+margin-top:25px;
+
+color:#888;
+
+}
+
+.actions span{
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.actions span:hover{
+
+color:#c1121f;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<a href="explore.html" class="back">← Back</a>
+
+<img src="Images/logo.svg" class="logo">
+
+<h1>WISDOMANIA MEDIA</h1>
+
+<p>Principles. Ideas. Articles. Videos.</p>
+
+</header>
+
+<div class="search">
+
+<input type="text" placeholder="Search articles, ideas or principles...">
+
+</div>
+
+<div class="filters">
+
+<button>All</button>
+
+<button>Articles</button>
+
+<button>Ideas</button>
+
+<button>Videos</button>
+
+<button>Principles</button>
+
+</div>
+
+<section class="feed">
+
+<div class="post">
+
+<div class="author">
+
+<img src="Images/logo.svg">
+
+<div>
+
+<h3>Wisdomania Media</h3>
+
+<span>Official • Today</span>
+
+</div>
+
+</div>
+
+<h2>Welcome to Wisdomania Media.</h2>
+
+<div class="post-image">
+
+Featured Image
+
+</div>
+
+<p>
+
+This is where every article, principle, lesson, insight and video from Wisdomania will live. Think of this as the organization's journal—a place where ideas are refined, documented and shared.
+
+</p>
+
+<div class="actions">
+
+<span>♡ Like</span>
+
+<span>💬 Comment</span>
+
+<span>↗ Share</span>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+
+</html>

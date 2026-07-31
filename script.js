@@ -2,15 +2,33 @@
 
 window.addEventListener("load", () => {
 
-    // Allow scrolling after intro
-    document.body.style.overflowY = "hidden";
+    document.body.style.overflow = "hidden";
 
-    setTimeout(() => {
-        document.body.style.overflowY = "auto";
-    }, 3500);
+    const counter = document.getElementById("loader-count");
+
+    let value = 0;
+
+    const interval = setInterval(() => {
+
+        value++;
+
+        if (counter) {
+            counter.textContent = value + "%";
+        }
+
+        if (value >= 100) {
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+                document.body.style.overflow = "auto";
+            }, 300);
+
+        }
+
+    }, 30);
 
 });
-
 
 // Smooth reveal animation
 const observer = new IntersectionObserver((entries) => {
@@ -30,7 +48,6 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.15
 });
 
-
 document.querySelectorAll(".section, .card").forEach(item => {
 
     item.style.opacity = "0";
@@ -41,46 +58,38 @@ document.querySelectorAll(".section, .card").forEach(item => {
 
 });
 
-
-// Button click animation
+// Button hover animation
 document.querySelectorAll(".buttons a").forEach(button => {
 
     button.addEventListener("mouseenter", () => {
-
         button.style.boxShadow = "0 0 25px rgba(193,18,31,.45)";
-
     });
 
     button.addEventListener("mouseleave", () => {
-
         button.style.boxShadow = "none";
-
     });
 
 });
 
-
-// Navbar shadow on scroll
+// Navbar shadow
 window.addEventListener("scroll", () => {
 
     const nav = document.querySelector("nav");
 
     if (window.scrollY > 20) {
-
         nav.style.boxShadow = "0 5px 20px rgba(0,0,0,.35)";
-
     } else {
-
         nav.style.boxShadow = "none";
-
     }
 
 });
+
+// Intro logo mouse movement
 const logo = document.querySelector(".intro-logo");
 
 document.addEventListener("mousemove", (e) => {
 
-    if(!logo) return;
+    if (!logo) return;
 
     const x = (e.clientX / window.innerWidth - 0.5) * 12;
     const y = (e.clientY / window.innerHeight - 0.5) * 12;
@@ -88,18 +97,16 @@ document.addEventListener("mousemove", (e) => {
     logo.style.transform = `translate(${x}px, ${y}px)`;
 
 });
-window.addEventListener("scroll",()=>{
 
-const nav=document.querySelector("nav");
+// Navbar resize on scroll
+window.addEventListener("scroll", () => {
 
-if(window.scrollY>80){
+    const nav = document.querySelector("nav");
 
-nav.style.padding="16px 8%";
-
-}else{
-
-nav.style.padding="24px 8%";
-
-}
+    if (window.scrollY > 80) {
+        nav.style.padding = "16px 8%";
+    } else {
+        nav.style.padding = "24px 8%";
+    }
 
 });
