@@ -14,269 +14,680 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
-color:white;
-font-family:"Space Grotesk",sans-serif;
+    background:#050505;
+    color:#fff;
+    font-family:"Space Grotesk",sans-serif;
+    overflow-x:hidden;
 }
+
+/* =========================
+   BACKGROUND
+========================= */
 
 body::before{
-content:"";
-position:fixed;
-top:50%;
-left:50%;
-width:900px;
-height:900px;
-transform:translate(-50%,-50%);
-background:radial-gradient(circle,rgba(193,18,31,.12),transparent 70%);
-pointer-events:none;
-z-index:-1;
+    content:"";
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:900px;
+    height:900px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(
+        circle,
+        rgba(193,18,31,.13),
+        transparent 70%
+    );
+    pointer-events:none;
+    z-index:-2;
 }
 
+.background-grid{
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:60px 60px;
+
+    opacity:.3;
+
+    pointer-events:none;
+
+    z-index:-3;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-
-padding:60px 10%;
-border-bottom:1px solid #202020;
-
+    padding:30px 8% 70px;
+    border-bottom:1px solid #1d1d1d;
 }
 
 .back{
-
-color:white;
-text-decoration:none;
-font-weight:700;
-
+    display:inline-block;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
 }
 
 .back:hover{
-
-color:#c1121f;
-
+    color:#c1121f;
 }
 
 .logo{
+    display:block;
+    width:70px;
+    height:70px;
+    margin:55px auto 25px;
 
-display:block;
-
-width:70px;
-
-margin:30px auto 15px;
-
+    animation:logoGlow 5s ease-in-out infinite;
 }
 
 header h1{
-
-font-family:"Montserrat",sans-serif;
-font-size:64px;
-text-align:center;
-letter-spacing:8px;
-
+    font-family:"Montserrat",sans-serif;
+    font-size:clamp(48px,7vw,86px);
+    font-weight:900;
+    text-align:center;
+    letter-spacing:10px;
+    line-height:1;
 }
 
 header p{
-
-margin-top:15px;
-text-align:center;
-color:#9b9b9b;
-
+    margin-top:20px;
+    text-align:center;
+    color:#999;
+    font-size:18px;
 }
 
+/* =========================
+   SEARCH
+========================= */
+
 .search{
-
-max-width:800px;
-margin:50px auto 20px;
-
-padding:0 20px;
-
+    max-width:850px;
+    margin:45px auto 25px;
+    padding:0 20px;
 }
 
 .search input{
+    width:100%;
+    padding:18px 24px;
 
-width:100%;
+    background:#101010;
 
-padding:18px 24px;
+    border:1px solid #252525;
 
-background:#111;
+    border-radius:14px;
 
-border:1px solid #222;
+    color:#fff;
 
-border-radius:14px;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:16px;
 
-color:white;
+    outline:none;
 
-font-size:17px;
-
+    transition:.3s;
 }
 
+.search input:focus{
+    border-color:#c1121f;
+    box-shadow:0 0 25px rgba(193,18,31,.12);
+}
+
+.search input::placeholder{
+    color:#666;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
 .filters{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-display:flex;
+    gap:12px;
 
-justify-content:center;
+    flex-wrap:wrap;
 
-gap:15px;
+    padding:0 20px;
 
-flex-wrap:wrap;
-
-margin-bottom:50px;
-
+    margin-bottom:50px;
 }
 
 .filters button{
+    padding:11px 20px;
 
-padding:12px 22px;
+    background:#101010;
 
-background:#111;
+    border:1px solid #252525;
 
-border:1px solid #222;
+    color:#aaa;
 
-color:white;
+    border-radius:30px;
 
-border-radius:30px;
+    cursor:pointer;
 
-cursor:pointer;
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:500;
 
-transition:.3s;
-
+    transition:.3s;
 }
 
-.filters button:hover{
-
-background:#c1121f;
-
+.filters button:hover,
+.filters button.active{
+    background:#c1121f;
+    border-color:#c1121f;
+    color:#fff;
 }
+
+/* =========================
+   FEED
+========================= */
 
 .feed{
+    max-width:850px;
 
-max-width:850px;
+    margin:auto;
 
-margin:auto;
+    padding:0 20px 100px;
 
-padding:0 20px 80px;
+    display:flex;
 
-display:flex;
+    flex-direction:column;
 
-flex-direction:column;
-
-gap:30px;
-
+    gap:30px;
 }
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured{
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #0b0b0b
+        );
+
+    border:1px solid #292929;
+
+    border-radius:22px;
+
+    padding:38px;
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+}
+
+.featured::before{
+    content:"";
+
+    position:absolute;
+
+    top:-150px;
+    right:-150px;
+
+    width:350px;
+    height:350px;
+
+    background:radial-gradient(
+        circle,
+        rgba(193,18,31,.2),
+        transparent 70%
+    );
+
+    pointer-events:none;
+}
+
+.featured-label{
+    display:inline-block;
+
+    color:#c1121f;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:18px;
+}
+
+.featured h2{
+    position:relative;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:clamp(28px,5vw,46px);
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+}
+
+.featured p{
+    position:relative;
+
+    max-width:650px;
+
+    color:#aaa;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+.featured-meta{
+    position:relative;
+
+    margin-top:25px;
+
+    color:#666;
+
+    font-size:14px;
+}
+
+/* =========================
+   POST
+========================= */
 
 .post{
+    background:#101010;
 
-background:#101010;
+    border:1px solid #222;
 
-border:1px solid #222;
+    border-radius:20px;
 
-border-radius:20px;
+    padding:28px;
 
-padding:28px;
-
+    transition:.35s;
 }
 
+.post:hover{
+    border-color:#303030;
+    transform:translateY(-3px);
+}
+
+/* AUTHOR */
+
 .author{
+    display:flex;
 
-display:flex;
+    align-items:center;
 
-align-items:center;
+    gap:14px;
 
-gap:15px;
-
-margin-bottom:20px;
-
+    margin-bottom:22px;
 }
 
 .author img{
+    width:52px;
+    height:52px;
 
-width:55px;
-height:55px;
-border-radius:50%;
+    border-radius:50%;
 
+    object-fit:cover;
 }
 
 .author h3{
-
-font-size:18px;
-
+    font-size:17px;
+    font-weight:700;
 }
 
 .author span{
+    display:block;
 
-display:block;
+    font-size:13px;
 
-font-size:14px;
+    color:#777;
 
-color:#888;
-
-margin-top:4px;
-
+    margin-top:4px;
 }
 
+/* POST CONTENT */
+
 .post h2{
+    font-family:"Montserrat",sans-serif;
 
-margin-bottom:18px;
+    font-size:clamp(22px,4vw,30px);
 
+    line-height:1.2;
+
+    margin-bottom:20px;
 }
 
 .post-image{
+    width:100%;
 
-width:100%;
+    min-height:280px;
 
-height:380px;
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #0d0d0d
+        );
 
-background:#181818;
+    border:1px solid #222;
 
-border-radius:16px;
+    border-radius:16px;
 
-margin-bottom:22px;
+    margin-bottom:22px;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-color:#666;
+    text-align:center;
 
+    color:#555;
+
+    font-size:14px;
+
+    letter-spacing:1px;
 }
 
 .post p{
+    line-height:1.9;
 
-line-height:1.9;
+    color:#bdbdbd;
 
-color:#c0c0c0;
-
+    font-size:16px;
 }
 
+/* =========================
+   ACTIONS
+========================= */
+
 .actions{
+    display:flex;
 
-display:flex;
+    align-items:center;
 
-gap:35px;
+    gap:28px;
 
-margin-top:25px;
+    margin-top:25px;
 
-color:#888;
+    padding-top:20px;
 
+    border-top:1px solid #202020;
+
+    color:#777;
+
+    font-size:14px;
 }
 
 .actions span{
+    cursor:pointer;
 
-cursor:pointer;
-
-transition:.3s;
-
+    transition:.3s;
 }
 
 .actions span:hover{
+    color:#c1121f;
+}
 
-color:#c1121f;
+/* =========================
+   SECTION LABEL
+========================= */
 
+.feed-title{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    color:#666;
+
+    text-transform:uppercase;
+
+    margin:10px 0 -10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid #202020;
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:14px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes logoGlow{
+
+    0%,100%{
+        filter:drop-shadow(0 0 0 rgba(193,18,31,0));
+    }
+
+    50%{
+        filter:drop-shadow(0 0 20px rgba(193,18,31,.7));
+    }
+
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    header{
+        padding-left:6%;
+        padding-right:6%;
+    }
+
+    header h1{
+        letter-spacing:6px;
+    }
+
+    .featured{
+        padding:32px;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    body::before{
+        width:600px;
+        height:600px;
+    }
+
+    header{
+        padding:20px 6% 55px;
+    }
+
+    .back{
+        font-size:14px;
+    }
+
+    .logo{
+        width:58px;
+        height:58px;
+
+        margin-top:45px;
+        margin-bottom:22px;
+    }
+
+    header h1{
+        font-size:clamp(38px,11vw,58px);
+
+        letter-spacing:4px;
+    }
+
+    header p{
+        font-size:15px;
+
+        line-height:1.6;
+    }
+
+    .search{
+        margin-top:30px;
+    }
+
+    .search input{
+        padding:16px 18px;
+
+        font-size:15px;
+    }
+
+    .filters{
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:5px;
+
+        scrollbar-width:none;
+    }
+
+    .filters::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filters button{
+        flex-shrink:0;
+
+        padding:10px 17px;
+
+        font-size:13px;
+    }
+
+    .feed{
+        padding-left:15px;
+        padding-right:15px;
+        padding-bottom:70px;
+    }
+
+    .featured{
+        padding:27px;
+
+        border-radius:18px;
+    }
+
+    .featured h2{
+        font-size:28px;
+    }
+
+    .featured p{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    .post{
+        padding:22px;
+
+        border-radius:17px;
+    }
+
+    .author img{
+        width:46px;
+        height:46px;
+    }
+
+    .author h3{
+        font-size:15px;
+    }
+
+    .author span{
+        font-size:12px;
+    }
+
+    .post-image{
+        min-height:220px;
+
+        border-radius:13px;
+    }
+
+    .post p{
+        font-size:15px;
+
+        line-height:1.8;
+    }
+
+    .actions{
+        gap:18px;
+
+        flex-wrap:wrap;
+    }
+
+    footer{
+        padding:35px 20px;
+    }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+    header h1{
+        font-size:36px;
+        letter-spacing:3px;
+    }
+
+    .featured{
+        padding:23px;
+    }
+
+    .post{
+        padding:18px;
+    }
+
+    .actions{
+        gap:14px;
+    }
 }
 
 </style>
@@ -285,27 +696,44 @@ color:#c1121f;
 
 <body>
 
+<div class="background-grid"></div>
+
 <header>
 
 <a href="explore.html" class="back">← Back</a>
 
-<img src="Images/logo.svg" class="logo">
+<img
+src="Images/logo.svg"
+class="logo"
+alt="Wisdomania Logo"
+>
 
 <h1>WISDOMANIA MEDIA</h1>
 
-<p>Principles. Ideas. Articles. Videos.</p>
+<p>
+Principles. Ideas. Articles. Videos.
+</p>
 
 </header>
 
+
+<!-- SEARCH -->
+
 <div class="search">
 
-<input type="text" placeholder="Search articles, ideas or principles...">
+<input
+type="text"
+placeholder="Search articles, ideas or principles..."
+>
 
 </div>
 
+
+<!-- FILTERS -->
+
 <div class="filters">
 
-<button>All</button>
+<button class="active">All</button>
 
 <button>Articles</button>
 
@@ -317,25 +745,66 @@ color:#c1121f;
 
 </div>
 
+
 <section class="feed">
 
-<div class="post">
+
+<!-- FEATURED -->
+
+<article class="featured">
+
+<span class="featured-label">
+Featured
+</span>
+
+<h2>
+Welcome to Wisdomania Media.
+</h2>
+
+<p>
+A growing library of ideas, principles, lessons and perspectives from the Wisdomania ecosystem.
+</p>
+
+<div class="featured-meta">
+Wisdomania • Official Publication
+</div>
+
+</article>
+
+
+<div class="feed-title">
+Latest
+</div>
+
+
+<!-- FIRST POST -->
+
+<article class="post">
 
 <div class="author">
 
-<img src="Images/logo.svg">
+<img
+src="Images/logo.svg"
+alt="Wisdomania"
+>
 
 <div>
 
-<h3>Wisdomania Media</h3>
+<h3>Wisdomania</h3>
 
-<span>Official • Today</span>
+<span>
+Official • Today
+</span>
 
 </div>
 
 </div>
 
-<h2>Welcome to Wisdomania Media.</h2>
+
+<h2>
+There is another way to live.
+</h2>
+
 
 <div class="post-image">
 
@@ -343,11 +812,19 @@ Featured Image
 
 </div>
 
+
 <p>
 
-This is where every article, principle, lesson, insight and video from Wisdomania will live. Think of this as the organization's journal—a place where ideas are refined, documented and shared.
+Wisdomania exists because we believe there is another way to live.
+
+A life built around sovereignty, mastery and responsibility.
+
+Finance. Strength. Leadership.
+
+These are not simply categories. They are foundations for building a life you actually control.
 
 </p>
+
 
 <div class="actions">
 
@@ -359,9 +836,17 @@ This is where every article, principle, lesson, insight and video from Wisdomani
 
 </div>
 
-</div>
+</article>
+
 
 </section>
+
+
+<footer>
+
+© 2026 Wisdomania — Mastery in Motion.
+
+</footer>
 
 </body>
 
