@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Channels | Wisdomania</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#050505;
+color:#fff;
+font-family:"Space Grotesk",sans-serif;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+width:900px;
+height:900px;
+transform:translate(-50%,-50%);
+background:radial-gradient(
+circle,
+rgba(193,18,31,.15),
+transparent 70%
+);
+pointer-events:none;
+z-index:-1;
+animation:pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:translate(-50%,-50%) scale(1);
+}
+
+50%{
+transform:translate(-50%,-50%) scale(1.1);
+}
+
+}
+
+.back{
+position:fixed;
+top:30px;
+left:40px;
+color:#fff;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+z-index:10;
+}
+
+.back:hover{
+color:#c1121f;
+}
+
+header{
+padding:90px 20px 60px;
+text-align:center;
+}
+
+h1{
+font-family:"Montserrat",sans-serif;
+font-size:90px;
+font-weight:900;
+letter-spacing:10px;
+margin-bottom:18px;
+text-transform:uppercase;
+text-shadow:
+0 0 12px rgba(255,255,255,.08),
+0 0 35px rgba(193,18,31,.20);
+}
+
+header p{
+font-size:20px;
+color:#a8a8a8;
+}
+
+.section{
+max-width:1100px;
+margin:70px auto;
+padding:0 10%;
+}
+
+.section h2{
+font-size:34px;
+margin-bottom:30px;
+color:#c1121f;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+}
+
+.card{
+background:#111;
+border:1px solid #222;
+border-radius:18px;
+padding:35px;
+text-decoration:none;
+color:white;
+transition:.35s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#c1121f;
+box-shadow:0 18px 40px rgba(193,18,31,.22);
+}
+
+.platform{
+font-size:32px;
+font-weight:700;
+margin-bottom:14px;
+}
+
+.card p{
+color:#b5b5b5;
+line-height:1.7;
+}
+
+.card::after{
+content:"→";
+position:absolute;
+right:28px;
+bottom:24px;
+font-size:28px;
+color:#777;
+transition:.3s;
+}
+
+.card:hover::after{
+color:#c1121f;
+transform:translateX(6px);
+}
+
+@media(max-width:700px){
+
+header{
+padding-top:100px;
+}
+
+h1{
+font-size:52px;
+letter-spacing:6px;
+}
+
+header p{
+font-size:17px;
+}
+
+.back{
+top:22px;
+left:25px;
+}
+
+.section{
+padding:0 7%;
+}
+
+.section h2{
+font-size:27px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="explore.html" class="back">← Back</a>
+
+<header>
+
+<h1>CHANNELS</h1>
+
+<p>Official channels of Wisdomania and its founder.</p>
+
+</header>
+
+
+<!-- WISDOMANIA -->
+
+<section class="section">
+
+<h2>Wisdomania</h2>
+
+<div class="grid">
+
+<a
+href="https://www.tiktok.com/@wisdom_ism"
+target="_blank"
+rel="noopener noreferrer"
+class="card"
+>
+
+<div class="platform">TikTok</div>
+
+<p>
+Official Wisdomania content, ideas and updates.
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOUNDER -->
+
+<section class="section">
+
+<h2>Founder</h2>
+
+<div class="grid">
+
+<a
+href="https://x.com/je_rriq"
+target="_blank"
+rel="noopener noreferrer"
+class="card"
+>
+
+<div class="platform">𝕏</div>
+
+<p>
+Thoughts, philosophy and ideas from the founder.
+</p>
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/@je_rriq"
+target="_blank"
+rel="noopener noreferrer"
+class="card"
+>
+
+<div class="platform">TikTok</div>
+
+<p>
+Personal content, ideas and the work behind Wisdomania.
+</p>
+
+</a>
+
+
+<a
+href="https://www.linkedin.com/in/jeremiah-oluwatimileyin-528b58284"
+target="_blank"
+rel="noopener noreferrer"
+class="card"
+>
+
+<div class="platform">LinkedIn</div>
+
+<p>
+Professional profile and work from the founder.
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>
