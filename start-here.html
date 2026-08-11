@@ -19,6 +19,10 @@
         rel="stylesheet"
     >
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
     <style>
 
         *{
@@ -245,6 +249,42 @@
         }
 
 
+        .button:disabled{
+
+            opacity:.6;
+
+            cursor:not-allowed;
+
+            transform:none;
+
+            box-shadow:none;
+        }
+
+
+        /* MESSAGE */
+
+        .message{
+
+            margin-top:20px;
+
+            font-size:15px;
+
+            line-height:1.6;
+
+            min-height:24px;
+        }
+
+
+        .success{
+            color:#ffffff;
+        }
+
+
+        .error{
+            color:#c1121f;
+        }
+
+
         /* MOBILE */
 
         @media(max-width:600px){
@@ -323,10 +363,11 @@
     </p>
 
 
-    <form class="form">
+    <form class="form" id="lead-form">
 
         <input
             type="text"
+            id="name"
             class="input"
             placeholder="Your name"
             required
@@ -335,6 +376,7 @@
 
         <input
             type="email"
+            id="email"
             class="input"
             placeholder="Your email"
             required
@@ -344,14 +386,142 @@
         <button
             type="submit"
             class="button"
+            id="submit-button"
         >
             GET ACCESS →
         </button>
+
+        <div
+            id="message"
+            class="message"
+        ></div>
 
     </form>
 
 
 </main>
+
+
+<script>
+
+    /* SUPABASE CONNECTION */
+
+    const SUPABASE_URL =
+        "https://yzdeawjyxbnutcngzlth.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_3ZHBoq180Cr-oxT9Gy6vSw_mPXvC2hA";
+
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+
+
+    /* FORM */
+
+    const form =
+        document.getElementById("lead-form");
+
+    const nameInput =
+        document.getElementById("name");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const button =
+        document.getElementById("submit-button");
+
+    const message =
+        document.getElementById("message");
+
+
+    form.addEventListener("submit", async function(event){
+
+        event.preventDefault();
+
+
+        const name =
+            nameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+
+        if(!name || !email){
+
+            message.textContent =
+                "Please enter your name and email.";
+
+            message.className =
+                "message error";
+
+            return;
+        }
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "SUBMITTING...";
+
+        message.textContent = "";
+
+
+
+        try{
+
+            const { error } =
+                await supabaseClient
+                    .from("leads")
+                    .insert([
+                        {
+                            name: name,
+                            email: email
+                        }
+                    ]);
+
+
+            if(error){
+                throw error;
+            }
+
+
+            message.textContent =
+                "You're in. Welcome to Wisdomania.";
+
+            message.className =
+                "message success";
+
+
+            form.reset();
+
+            button.textContent =
+                "ACCESS GRANTED";
+
+
+        }catch(error){
+
+            console.error(error);
+
+            message.textContent =
+                "Something went wrong. Please try again.";
+
+            message.className =
+                "message error";
+
+            button.disabled = false;
+
+            button.textContent =
+                "GET ACCESS →";
+
+        }
+
+    });
+
+</script>
 
 
 </body>
