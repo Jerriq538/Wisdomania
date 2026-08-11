@@ -723,3 +723,52 @@ footer {
         margin-top: 15px;
     }
 }
+.footer-socials{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:40px;
+margin-bottom:35px;
+}
+
+.social-group{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+}
+
+.social-group h3{
+font-size:14px;
+letter-spacing:4px;
+color:#b5b5b5;
+}
+
+.social-icons{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.social-icons a{
+width:52px;
+height:52px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid #222;
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:22px;
+transition:.3s;
+}
+
+.social-icons a:hover{
+color:#c1121f;
+border-color:#c1121f;
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(193,18,31,.2);
+}
