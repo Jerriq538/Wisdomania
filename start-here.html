@@ -37,10 +37,8 @@
 
         body{
             min-height:100vh;
-
             background:#050505;
             color:#ffffff;
-
             font-family:"Space Grotesk",sans-serif;
 
             display:flex;
@@ -54,7 +52,6 @@
         /* BACKGROUND */
 
         body::before{
-
             content:"";
 
             position:fixed;
@@ -83,7 +80,6 @@
         /* PAGE */
 
         .page{
-
             width:100%;
             max-width:700px;
 
@@ -96,7 +92,6 @@
         /* BACK */
 
         .back{
-
             position:absolute;
 
             top:30px;
@@ -120,7 +115,6 @@
         /* LOGO */
 
         .logo{
-
             width:70px;
             height:70px;
 
@@ -133,7 +127,6 @@
         /* HEADING */
 
         h1{
-
             font-size:58px;
 
             letter-spacing:8px;
@@ -143,7 +136,6 @@
 
 
         .subtitle{
-
             font-size:24px;
 
             font-weight:500;
@@ -157,7 +149,6 @@
         /* FORM */
 
         .form{
-
             max-width:500px;
 
             margin:0 auto;
@@ -165,7 +156,6 @@
 
 
         .input{
-
             width:100%;
 
             height:62px;
@@ -198,7 +188,6 @@
 
 
         .input:focus{
-
             border-color:#c1121f;
 
             box-shadow:
@@ -210,7 +199,6 @@
         /* BUTTON */
 
         .button{
-
             width:100%;
 
             height:62px;
@@ -240,7 +228,6 @@
 
 
         .button:hover{
-
             transform:translateY(-4px);
 
             box-shadow:
@@ -250,7 +237,6 @@
 
 
         .button:disabled{
-
             opacity:.6;
 
             cursor:not-allowed;
@@ -264,7 +250,6 @@
         /* MESSAGE */
 
         .message{
-
             margin-top:20px;
 
             font-size:15px;
@@ -294,14 +279,11 @@
             }
 
             .back{
-
                 top:25px;
                 left:22px;
-
             }
 
             .logo{
-
                 width:60px;
                 height:60px;
 
@@ -309,14 +291,12 @@
             }
 
             h1{
-
                 font-size:42px;
 
                 letter-spacing:6px;
             }
 
             .subtitle{
-
                 font-size:21px;
 
                 margin-bottom:35px;
@@ -324,7 +304,6 @@
 
             .input,
             .button{
-
                 height:58px;
             }
 
@@ -470,7 +449,6 @@
         message.textContent = "";
 
 
-
         try{
 
             const { error } =
@@ -489,6 +467,19 @@
             }
 
 
+            /*
+             * ACCESS GRANTED
+             *
+             * The visitor has successfully
+             * submitted their information.
+             *
+             * Send them directly to
+             * the Wisdomania Protocol.
+             */
+
+            button.textContent =
+                "ACCESS GRANTED";
+
             message.textContent =
                 "You're in. Welcome to Wisdomania.";
 
@@ -496,10 +487,18 @@
                 "message success";
 
 
-            form.reset();
+            /*
+             * Give the success message
+             * a moment to appear, then
+             * open the Protocol.
+             */
 
-            button.textContent =
-                "ACCESS GRANTED";
+            setTimeout(function(){
+
+                window.location.href =
+                    "protocol.html";
+
+            }, 800);
 
 
         }catch(error){
