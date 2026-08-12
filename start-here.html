@@ -25,286 +25,249 @@
 
     <style>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        html{
-            scroll-behavior:smooth;
+        html {
+            scroll-behavior: smooth;
         }
 
-        body{
-            min-height:100vh;
-            background:#050505;
-            color:#ffffff;
-            font-family:"Space Grotesk",sans-serif;
+        body {
+            min-height: 100vh;
 
-            display:flex;
-            align-items:center;
-            justify-content:center;
+            background: #050505;
+            color: #ffffff;
 
-            overflow-x:hidden;
+            font-family: "Space Grotesk", sans-serif;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow-x: hidden;
         }
 
+        body::before {
+            content: "";
 
-        /* BACKGROUND */
+            position: fixed;
 
-        body::before{
-            content:"";
+            top: 50%;
+            left: 50%;
 
-            position:fixed;
+            width: 800px;
+            height: 800px;
 
-            top:50%;
-            left:50%;
-
-            width:800px;
-            height:800px;
-
-            transform:translate(-50%,-50%);
+            transform: translate(-50%, -50%);
 
             background:
                 radial-gradient(
                     circle,
-                    rgba(193,18,31,.14),
+                    rgba(193, 18, 31, .14),
                     transparent 70%
                 );
 
-            pointer-events:none;
+            pointer-events: none;
 
-            z-index:-1;
+            z-index: -1;
         }
 
+        .page {
+            width: 100%;
+            max-width: 700px;
 
-        /* PAGE */
+            padding: 40px 25px;
 
-        .page{
-            width:100%;
-            max-width:700px;
-
-            padding:40px 25px;
-
-            text-align:center;
+            text-align: center;
         }
 
+        .back {
+            position: absolute;
 
-        /* BACK */
+            top: 30px;
+            left: 8%;
 
-        .back{
-            position:absolute;
+            color: #ffffff;
 
-            top:30px;
-            left:8%;
+            text-decoration: none;
 
-            color:#ffffff;
+            font-size: 15px;
+            font-weight: 500;
 
-            text-decoration:none;
-
-            font-size:15px;
-            font-weight:500;
-
-            transition:.3s;
+            transition: .3s;
         }
 
-        .back:hover{
-            color:#c1121f;
+        .back:hover {
+            color: #c1121f;
         }
 
+        .logo {
+            width: 70px;
+            height: 70px;
 
-        /* LOGO */
+            margin-bottom: 35px;
 
-        .logo{
-            width:70px;
-            height:70px;
-
-            margin-bottom:35px;
-
-            border-radius:50%;
+            border-radius: 50%;
         }
 
+        h1 {
+            font-size: 58px;
 
-        /* HEADING */
+            letter-spacing: 8px;
 
-        h1{
-            font-size:58px;
-
-            letter-spacing:8px;
-
-            margin-bottom:20px;
+            margin-bottom: 20px;
         }
 
+        .subtitle {
+            font-size: 24px;
 
-        .subtitle{
-            font-size:24px;
+            font-weight: 500;
 
-            font-weight:500;
+            color: #ffffff;
 
-            color:#ffffff;
-
-            margin-bottom:45px;
+            margin-bottom: 45px;
         }
 
+        .form {
+            max-width: 500px;
 
-        /* FORM */
-
-        .form{
-            max-width:500px;
-
-            margin:0 auto;
+            margin: 0 auto;
         }
 
+        .input {
+            width: 100%;
 
-        .input{
-            width:100%;
+            height: 62px;
 
-            height:62px;
+            padding: 0 22px;
 
-            padding:0 22px;
+            margin-bottom: 16px;
 
-            margin-bottom:16px;
+            background: #111111;
 
-            background:#111111;
+            border: 1px solid #252525;
 
-            border:1px solid #252525;
+            border-radius: 12px;
 
-            border-radius:12px;
+            color: #ffffff;
 
-            color:#ffffff;
+            font-family: "Space Grotesk", sans-serif;
 
-            font-family:"Space Grotesk",sans-serif;
+            font-size: 16px;
 
-            font-size:16px;
+            outline: none;
 
-            outline:none;
-
-            transition:.3s;
+            transition: .3s;
         }
 
-
-        .input::placeholder{
-            color:#777777;
+        .input::placeholder {
+            color: #777777;
         }
 
-
-        .input:focus{
-            border-color:#c1121f;
+        .input:focus {
+            border-color: #c1121f;
 
             box-shadow:
                 0 0 20px
-                rgba(193,18,31,.12);
+                rgba(193, 18, 31, .12);
         }
 
+        .button {
+            width: 100%;
 
-        /* BUTTON */
+            height: 62px;
 
-        .button{
-            width:100%;
+            margin-top: 5px;
 
-            height:62px;
+            border: none;
 
-            margin-top:5px;
+            border-radius: 12px;
 
-            border:none;
+            background: #c1121f;
 
-            border-radius:12px;
+            color: #ffffff;
 
-            background:#c1121f;
+            font-family: "Space Grotesk", sans-serif;
 
-            color:#ffffff;
+            font-size: 16px;
 
-            font-family:"Space Grotesk",sans-serif;
+            font-weight: 700;
 
-            font-size:16px;
+            letter-spacing: 1px;
 
-            font-weight:700;
+            cursor: pointer;
 
-            letter-spacing:1px;
-
-            cursor:pointer;
-
-            transition:.35s;
+            transition: .35s;
         }
 
-
-        .button:hover{
-            transform:translateY(-4px);
+        .button:hover {
+            transform: translateY(-4px);
 
             box-shadow:
                 0 15px 35px
-                rgba(193,18,31,.30);
+                rgba(193, 18, 31, .30);
         }
 
+        .button:disabled {
+            opacity: .6;
 
-        .button:disabled{
-            opacity:.6;
+            cursor: not-allowed;
 
-            cursor:not-allowed;
+            transform: none;
 
-            transform:none;
-
-            box-shadow:none;
+            box-shadow: none;
         }
 
+        .message {
+            margin-top: 20px;
 
-        /* MESSAGE */
+            font-size: 15px;
 
-        .message{
-            margin-top:20px;
+            line-height: 1.6;
 
-            font-size:15px;
-
-            line-height:1.6;
-
-            min-height:24px;
+            min-height: 24px;
         }
 
-
-        .success{
-            color:#ffffff;
+        .error {
+            color: #c1121f;
         }
 
+        @media (max-width: 600px) {
 
-        .error{
-            color:#c1121f;
-        }
-
-
-        /* MOBILE */
-
-        @media(max-width:600px){
-
-            .page{
-                padding:35px 22px;
+            .page {
+                padding: 35px 22px;
             }
 
-            .back{
-                top:25px;
-                left:22px;
+            .back {
+                top: 25px;
+                left: 22px;
             }
 
-            .logo{
-                width:60px;
-                height:60px;
+            .logo {
+                width: 60px;
+                height: 60px;
 
-                margin-bottom:30px;
+                margin-bottom: 30px;
             }
 
-            h1{
-                font-size:42px;
+            h1 {
+                font-size: 42px;
 
-                letter-spacing:6px;
+                letter-spacing: 6px;
             }
 
-            .subtitle{
-                font-size:21px;
+            .subtitle {
+                font-size: 21px;
 
-                margin-bottom:35px;
+                margin-bottom: 35px;
             }
 
             .input,
-            .button{
-                height:58px;
+            .button {
+                height: 58px;
             }
 
         }
@@ -352,7 +315,6 @@
             required
         >
 
-
         <input
             type="email"
             id="email"
@@ -360,7 +322,6 @@
             placeholder="Your email"
             required
         >
-
 
         <button
             type="submit"
@@ -417,42 +378,91 @@
         document.getElementById("message");
 
 
-    form.addEventListener("submit", async function(event){
+    form.addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
-
-
-        const name =
-            nameInput.value.trim();
-
-        const email =
-            emailInput.value.trim();
+            event.preventDefault();
 
 
-        if(!name || !email){
+            const name =
+                nameInput.value.trim();
 
-            message.textContent =
-                "Please enter your name and email.";
-
-            message.className =
-                "message error";
-
-            return;
-        }
+            const email =
+                emailInput.value.trim().toLowerCase();
 
 
-        button.disabled = true;
+            if (!name || !email) {
 
-        button.textContent =
-            "SUBMITTING...";
+                message.textContent =
+                    "Please enter your name and email.";
 
-        message.textContent = "";
+                message.className =
+                    "message error";
+
+                return;
+            }
 
 
-        try{
+            button.disabled = true;
 
-            const { error } =
-                await supabaseClient
+            button.textContent =
+                "CHECKING...";
+
+            message.textContent = "";
+
+
+            try {
+
+                /*
+                 * CHECK WHETHER THIS EMAIL
+                 * HAS ALREADY BEEN USED.
+                 */
+
+                const {
+                    data: existingLead,
+                    error: checkError
+                } = await supabaseClient
+                    .from("leads")
+                    .select("id")
+                    .eq("email", email)
+                    .maybeSingle();
+
+
+                if (checkError) {
+                    throw checkError;
+                }
+
+
+                /*
+                 * EMAIL HAS ALREADY BEEN USED.
+                 */
+
+                if (existingLead) {
+
+                    message.textContent =
+                        "This email has already been used to access the Protocol.";
+
+                    message.className =
+                        "message error";
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "GET ACCESS →";
+
+                    return;
+                }
+
+
+                /*
+                 * NEW EMAIL.
+                 * SAVE IT TO SUPABASE.
+                 */
+
+                const {
+                    error: insertError
+                } = await supabaseClient
                     .from("leads")
                     .insert([
                         {
@@ -462,63 +472,74 @@
                     ]);
 
 
-            if(error){
-                throw error;
-            }
+                if (insertError) {
+                    throw insertError;
+                }
 
 
-            /*
-             * ACCESS GRANTED
-             *
-             * The visitor has successfully
-             * submitted their information.
-             *
-             * Send them directly to
-             * the Wisdomania Protocol.
-             */
+                /*
+                 * GIVE THIS BROWSER
+                 * TEMPORARY ACCESS.
+                 */
 
-            button.textContent =
-                "ACCESS GRANTED";
-
-            message.textContent =
-                "You're in. Welcome to Wisdomania.";
-
-            message.className =
-                "message success";
+                sessionStorage.setItem(
+                    "wisdomania_protocol_access",
+                    "granted"
+                );
 
 
-            /*
-             * Give the success message
-             * a moment to appear, then
-             * open the Protocol.
-             */
+                sessionStorage.setItem(
+                    "wisdomania_protocol_email",
+                    email
+                );
 
-            setTimeout(function(){
+
+                /*
+                 * TAKE THE USER DIRECTLY
+                 * TO THE PROTOCOL.
+                 */
 
                 window.location.href =
                     "protocol.html";
 
-            }, 800);
+            }
 
 
-        }catch(error){
+            catch (error) {
 
-            console.error(error);
+                console.error(error);
 
-            message.textContent =
-                "Something went wrong. Please try again.";
 
-            message.className =
-                "message error";
+                /*
+                 * DATABASE UNIQUE-CONSTRAINT ERROR.
+                 */
 
-            button.disabled = false;
+                if (error.code === "23505") {
 
-            button.textContent =
-                "GET ACCESS →";
+                    message.textContent =
+                        "This email has already been used to access the Protocol.";
+
+                } else {
+
+                    message.textContent =
+                        "Something went wrong. Please try again.";
+
+                }
+
+
+                message.className =
+                    "message error";
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "GET ACCESS →";
+
+            }
 
         }
-
-    });
+    );
 
 </script>
 
